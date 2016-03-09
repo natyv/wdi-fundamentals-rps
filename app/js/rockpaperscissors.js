@@ -86,6 +86,10 @@ function playToFive() {
         var winner = getWinner();
         if (winner === 'player'){playerWins += 1;}
         if (winner === 'computer'){computerWins += 1;}
+        if (winner === 'tie'){
+            playerWins = playerWins;
+            computerWins = computerWins;
+        }                    
         console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
         if (playerWins === 5){ return 'Player Wins!';}
         if (computerWins === 5){ return 'Computer Wins!';}
@@ -100,13 +104,19 @@ function playTo(x) {
     var computerWins = 0;
     
     while((playerWins<x)||(computerWins<x)){
+     //   var playerMove = getPlayerMove();
+     //   var compMove = getComputerMove();
         var winner = getWinner();
-        if (winner === 'player'){playerWins += 1;}
-        if (winner === 'computer'){computerWins += 1;}
+        if (winner === 'player'){playerWins = playerWins + 1;}
+        else if (winner === 'computer'){computerWins = computerWins + 1;}
+        else if (winner === 'tie'){
+            playerWins = playerWins;
+            computerWins = computerWins;
+        } else {
+            console.log('error');
+        }
         console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
         if (playerWins === x){ return 'Player Wins!';}
         if (computerWins === x){ return 'Computer Wins!';}
     }
 }
-
-
